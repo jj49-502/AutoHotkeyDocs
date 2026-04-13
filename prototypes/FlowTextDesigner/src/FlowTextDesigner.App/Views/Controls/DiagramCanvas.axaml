@@ -1,0 +1,13 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="FlowTextDesigner.App.Views.Controls.DiagramCanvas">
+  <!-- Placeholder: sem přijde kreslení mřížky, uzlů a hran. -->
+  <Border Classes="canvas-root">
+    <Grid>
+      <TextBlock Text="Canvas placeholder (grid + nodes + edges)"
+                 HorizontalAlignment="Center"
+                 VerticalAlignment="Center"
+                 Opacity="0.7" />
+    </Grid>
+  </Border>
+</UserControl>

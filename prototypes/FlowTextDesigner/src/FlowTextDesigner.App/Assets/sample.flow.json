@@ -1,0 +1,37 @@
+{
+  "activePageId": "page-1",
+  "pages": [
+    {
+      "id": "page-1",
+      "name": "Page1",
+      "nodes": [
+        {
+          "id": "N-001",
+          "type": 0,
+          "text": "(Start)",
+          "x": 120,
+          "y": 80,
+          "properties": {
+            "owner": "demo"
+          }
+        },
+        {
+          "id": "N-002",
+          "type": 1,
+          "text": "[Process]",
+          "x": 320,
+          "y": 80,
+          "properties": {}
+        }
+      ],
+      "edges": [
+        {
+          "id": "E-001",
+          "fromNodeId": "N-001",
+          "toNodeId": "N-002",
+          "label": "next"
+        }
+      ]
+    }
+  ]
+}
