@@ -1,0 +1,67 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="clr-namespace:FlowTextDesigner.App.ViewModels"
+        xmlns:controls="clr-namespace:FlowTextDesigner.App.Views.Controls"
+        x:Class="FlowTextDesigner.App.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Width="1280"
+        Height="800"
+        Title="FlowText Designer"
+        mc:Ignorable="d">
+
+  <Grid RowDefinitions="Auto,*,Auto" ColumnDefinitions="*,320">
+    <!-- Horní pás tlačítek (budoucí ribbon). -->
+    <Border Grid.Row="0" Grid.ColumnSpan="2" Classes="ribbon">
+      <StackPanel Orientation="Horizontal" Spacing="8">
+        <Button Content="Add Start" Command="{Binding AddStartNodeCommand}" />
+        <Button Content="Add Process" Command="{Binding AddProcessNodeCommand}" />
+        <Button Content="Add Decision" Command="{Binding AddDecisionNodeCommand}" />
+        <Button Content="Connect" Command="{Binding ConnectSelectedCommand}" />
+        <Separator Margin="8,0" Width="1" />
+        <Button Content="Save" Command="{Binding SaveCommand}" />
+        <Button Content="Load" Command="{Binding LoadCommand}" />
+      </StackPanel>
+    </Border>
+
+    <!-- Střed: plátno diagramu (zatím placeholder kontrola). -->
+    <controls:DiagramCanvas Grid.Row="1" Grid.Column="0" />
+
+    <!-- Pravý panel pro editaci vlastností vybraného objektu. -->
+    <Border Grid.Row="1" Grid.Column="1" Classes="property-panel">
+      <StackPanel Spacing="8">
+        <TextBlock Text="Properties" Classes="panel-title" />
+        <TextBlock Text="Selected ID" />
+        <TextBox Text="{Binding Properties.SelectedId}" IsReadOnly="True" />
+
+        <TextBlock Text="Type" />
+        <TextBox Text="{Binding Properties.SelectedType}" IsReadOnly="True" />
+
+        <TextBlock Text="Text" />
+        <TextBox Text="{Binding Properties.SelectedText}" />
+
+        <Grid ColumnDefinitions="Auto,*" RowDefinitions="Auto,Auto" ColumnSpacing="8" RowSpacing="8">
+          <TextBlock Grid.Row="0" Grid.Column="0" Text="X" VerticalAlignment="Center" />
+          <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Properties.SelectedX}" />
+          <TextBlock Grid.Row="1" Grid.Column="0" Text="Y" VerticalAlignment="Center" />
+          <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Properties.SelectedY}" />
+        </Grid>
+      </StackPanel>
+    </Border>
+
+    <!-- Spodní lišta stránek (Page1/Page2/+). -->
+    <Border Grid.Row="2" Grid.ColumnSpan="2" Classes="tabs-bar">
+      <StackPanel Orientation="Horizontal" Spacing="4">
+        <ItemsControl ItemsSource="{Binding Pages}">
+          <ItemsControl.ItemTemplate>
+            <DataTemplate>
+              <Button Content="{Binding Name}" Command="{Binding DataContext.SelectPageCommand, RelativeSource={RelativeSource AncestorType=Window}}" CommandParameter="{Binding Id}" />
+            </DataTemplate>
+          </ItemsControl.ItemTemplate>
+        </ItemsControl>
+        <Button Content="+" Command="{Binding AddPageCommand}" />
+      </StackPanel>
+    </Border>
+  </Grid>
+</Window>
