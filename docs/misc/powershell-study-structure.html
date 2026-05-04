@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PowerShell Study Structure (L1-L4)</title>
+  <style>
+    body { font-family: Arial, sans-serif; line-height: 1.5; margin: 2rem; }
+    h1, h2, h3 { margin-top: 1.2rem; }
+    .meta { color: #444; font-size: 0.95rem; }
+    .level { margin-top: 1rem; padding: 0.8rem; border: 1px solid #ddd; border-radius: 8px; }
+    .tags { font-size: 0.92rem; color: #1f3b4d; }
+    code { background: #f5f5f5; padding: 0.1rem 0.3rem; border-radius: 4px; }
+  </style>
+</head>
+<body>
+  <h1>PowerShell Study Structure (L1-L4)</h1>
+  <p class="meta">Jazyk názvů témat: <strong>English (exact wording from sources)</strong> + český překlad. Řazení od nejjednoduššího ke složitějšímu.</p>
+
+  <div class="level">
+    <h2>L1-1: What is PowerShell? / Co je PowerShell?</h2>
+    <p><strong>L2:</strong> PowerShell / PowerShell (základní definice)</p>
+    <p><strong>L3:</strong> Task automation and configuration management / Automatizace úloh a správa konfigurace</p>
+    <p><strong>L4:</strong> Cross-platform command-line shell and scripting language / Multiplatformní příkazový shell a skriptovací jazyk</p>
+    <p><strong>Source:</strong> <a href="https://en.wikipedia.org/wiki/PowerShell#Overview">Wikipedia: PowerShell (anchor: Overview)</a></p>
+    <p><strong>Author/Organization:</strong> Wikipedia contributors, Wikimedia Foundation</p>
+    <p class="tags"><strong>Tags (EN):</strong> What_is_PowerShell, Automation, Configuration_management, Cross_platform, Command_line_shell<br/>
+      <strong>Tagy (CZ):</strong> Co_je_PowerShell, Automatizace, Sprava_konfigurace, Multiplatformni, Prikazovy_shell</p>
+  </div>
+
+  <div class="level">
+    <h2>L1-2: Command-line Shell / Příkazový shell</h2>
+    <p><strong>L2:</strong> Command-line Shell / Příkazový shell</p>
+    <p><strong>L3:</strong> history, tab completion, aliases / historie, doplňování tabulátorem, aliasy</p>
+    <p><strong>L4:</strong> In-console help system / Nápověda v konzoli</p>
+    <p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/powershell/scripting/overview?view=powershell-7.4#command-line-shell">Microsoft Learn: What is PowerShell? (anchor: command-line-shell)</a></p>
+    <p><strong>Author/Organization:</strong> Microsoft</p>
+    <p class="tags"><strong>Tags (EN):</strong> Command_line_shell, History, Tab_completion, Aliases, Help_system<br/>
+      <strong>Tagy (CZ):</strong> Prikazovy_shell, Historie, Doplneni_tabulatorem, Aliasy, Napoveda</p>
+  </div>
+
+  <div class="level">
+    <h2>L1-3: Discoverability and Help / Objevování příkazů a nápověda</h2>
+    <p><strong>L2:</strong> Discover PowerShell / Objevování PowerShellu</p>
+    <p><strong>L3:</strong> Get-Command / Získání příkazů</p>
+    <p><strong>L4:</strong> Get-Help and Update-Help / Nápověda a aktualizace nápovědy</p>
+    <p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/powershell/scripting/learn/discover-powershell?view=powershell-7.5">Microsoft Learn: Discover PowerShell</a> (pointer substring: "Get-Command")</p>
+    <p><strong>Author/Organization:</strong> Microsoft</p>
+    <p class="tags"><strong>Tags (EN):</strong> Discover_PowerShell, Get_Command, Get_Help, Update_Help, Learning_path<br/>
+      <strong>Tagy (CZ):</strong> Objevovani_PowerShellu, Get_Command, Get_Help, Update_Help, Studijni_cesta</p>
+  </div>
+
+  <div class="level">
+    <h2>L1-4: Objects and the Pipeline / Objekty a roura (pipeline)</h2>
+    <p><strong>L2:</strong> about_Objects / O objektech</p>
+    <p><strong>L3:</strong> Types, methods, and properties / Typy, metody a vlastnosti</p>
+    <p><strong>L4:</strong> Objects in pipelines / Objekty v pipeline</p>
+    <p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_objects?view=powershell-7.5#types-methods-and-properties">Microsoft Learn: about_Objects (anchor: types-methods-and-properties)</a></p>
+    <p><strong>Author/Organization:</strong> Microsoft</p>
+    <p class="tags"><strong>Tags (EN):</strong> about_Objects, Properties, Methods, Object_type, Pipeline_objects<br/>
+      <strong>Tagy (CZ):</strong> O_objektech, Vlastnosti, Metody, Typ_objektu, Objekty_v_pipeline</p>
+  </div>
+
+  <div class="level">
+    <h2>L1-5: Pipeline Mechanics / Mechanika pipeline</h2>
+    <p><strong>L2:</strong> about_Pipelines / O pipeline</p>
+    <p><strong>L3:</strong> One-at-a-time processing / Zpracování po jednotlivých objektech</p>
+    <p><strong>L4:</strong> Parameter binding and troubleshooting / Vázání parametrů a ladění chyb</p>
+    <p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_pipelines?view=powershell-7.6#methods-of-accepting-pipeline-input">Microsoft Learn: about_Pipelines (anchor: methods-of-accepting-pipeline-input)</a></p>
+    <p><strong>Author/Organization:</strong> Microsoft</p>
+    <p class="tags"><strong>Tags (EN):</strong> about_Pipelines, Pipeline_input, Parameter_binding, Troubleshooting, Streaming<br/>
+      <strong>Tagy (CZ):</strong> O_pipeline, Vstup_pipeline, Vazani_parametru, Ladeni_chyb, Streamovani</p>
+  </div>
+
+  <div class="level">
+    <h2>L1-6: Providers and Data Navigation / Poskytovatelé a navigace dat</h2>
+    <p><strong>L2:</strong> about_Providers / O poskytovatelích</p>
+    <p><strong>L3:</strong> FileSystem, Registry, Certificate providers / Poskytovatelé FileSystem, Registry, Certificate</p>
+    <p><strong>L4:</strong> Get-PSDrive and location abstraction / Get-PSDrive a abstrakce umístění</p>
+    <p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_providers?view=powershell-7.5#built-in-providers">Microsoft Learn: about_Providers (anchor: built-in-providers)</a></p>
+    <p><strong>Author/Organization:</strong> Microsoft</p>
+    <p class="tags"><strong>Tags (EN):</strong> about_Providers, FileSystem, Registry, Certificate, Get_PSDrive<br/>
+      <strong>Tagy (CZ):</strong> O_poskytovatelich, Souborovy_system, Registr, Certifikaty, Get_PSDrive</p>
+  </div>
+
+  <div class="level">
+    <h2>L1-7: Scripting Fundamentals / Základy skriptování</h2>
+    <p><strong>L2:</strong> about_Scripts / O skriptech</p>
+    <p><strong>L3:</strong> parameters, functions, script blocks / parametry, funkce, bloky skriptu</p>
+    <p><strong>L4:</strong> execution policy and script signing / politika spouštění a podepisování skriptů</p>
+    <p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_scripts?view=powershell-7.5">Microsoft Learn: about_Scripts</a> (pointer substring: "script file")</p>
+    <p><strong>Author/Organization:</strong> Microsoft</p>
+    <p class="tags"><strong>Tags (EN):</strong> about_Scripts, Functions, Parameters, Script_block, Execution_policy<br/>
+      <strong>Tagy (CZ):</strong> O_skriptech, Funkce, Parametry, Blok_skriptu, Politika_spousteni</p>
+  </div>
+
+  <div class="level">
+    <h2>L1-8: Error Handling and Reliability / Zpracování chyb a spolehlivost</h2>
+    <p><strong>L2:</strong> about_Try_Catch_Finally / O Try-Catch-Finally</p>
+    <p><strong>L3:</strong> terminating vs non-terminating errors / ukončující a neukončující chyby</p>
+    <p><strong>L4:</strong> trap and structured exception handling / trap a strukturované výjimky</p>
+    <p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_try_catch_finally?view=powershell-7.5">Microsoft Learn: about_Try_Catch_Finally</a> (pointer substring: "non-terminating")</p>
+    <p><strong>Author/Organization:</strong> Microsoft</p>
+    <p class="tags"><strong>Tags (EN):</strong> Error_handling, Try_Catch_Finally, Exceptions, Trap, Reliability<br/>
+      <strong>Tagy (CZ):</strong> Zpracovani_chyb, Try_Catch_Finally, Vyjimky, Trap, Spolehlivost</p>
+  </div>
+
+  <div class="level">
+    <h2>L1-9: Modules and Reuse / Moduly a znovupoužití</h2>
+    <p><strong>L2:</strong> about_Modules / O modulech</p>
+    <p><strong>L3:</strong> script modules and binary modules / skriptové a binární moduly</p>
+    <p><strong>L4:</strong> module manifests and publishing / manifesty modulů a publikování</p>
+    <p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_modules?view=powershell-7.5#module-types-and-locations">Microsoft Learn: about_Modules (anchor: module-types-and-locations)</a></p>
+    <p><strong>Author/Organization:</strong> Microsoft</p>
+    <p class="tags"><strong>Tags (EN):</strong> about_Modules, Script_module, Binary_module, Module_manifest, PowerShellGet<br/>
+      <strong>Tagy (CZ):</strong> O_modulech, Skriptovy_modul, Binarni_modul, Manifest_modulu, PowerShellGet</p>
+  </div>
+
+  <div class="level">
+    <h2>L1-10: Remote Management and Security / Vzdálená správa a bezpečnost</h2>
+    <p><strong>L2:</strong> about_Remote / O vzdálené správě</p>
+    <p><strong>L3:</strong> PSSession, Invoke-Command / PSSession, Invoke-Command</p>
+    <p><strong>L4:</strong> PowerShell Remoting over SSH / PowerShell remoting přes SSH</p>
+    <p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_remote?view=powershell-7.5#long-description">Microsoft Learn: about_Remote (anchor: long-description)</a></p>
+    <p><strong>Author/Organization:</strong> Microsoft</p>
+    <p class="tags"><strong>Tags (EN):</strong> about_Remote, PSSession, Invoke_Command, SSH, Secure_administration<br/>
+      <strong>Tagy (CZ):</strong> O_vzdalene_sprave, PSSession, Invoke_Command, SSH, Bezpecna_sprava</p>
+  </div>
+
+  <div class="level">
+    <h2>L1-11: Desired State Configuration (DSC) / Desired State Configuration (DSC)</h2>
+    <p><strong>L2:</strong> DSC / DSC</p>
+    <p><strong>L3:</strong> Configuration as code / Konfigurace jako kód</p>
+    <p><strong>L4:</strong> push or pull models / model push nebo pull</p>
+    <p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/powershell/scripting/overview?view=powershell-7.4#configuration-management">Microsoft Learn: What is PowerShell? (anchor: configuration-management)</a></p>
+    <p><strong>Author/Organization:</strong> Microsoft</p>
+    <p class="tags"><strong>Tags (EN):</strong> DSC, Configuration_as_code, Push_model, Pull_model, Infrastructure_as_code<br/>
+      <strong>Tagy (CZ):</strong> DSC, Konfigurace_jako_kod, Push_model, Pull_model, Infrastruktura_jako_kod</p>
+  </div>
+
+  <div class="level">
+    <h2>L1-12: Ecosystem and Career-Scale Learning / Ekosystém a studium pro praxi</h2>
+    <p><strong>L2:</strong> PowerShell Learn modules / Výukové moduly PowerShell</p>
+    <p><strong>L3:</strong> Community and books / Komunita a knihy</p>
+    <p><strong>L4:</strong> PowerShell in Depth / PowerShell in Depth (pokročilá literatura)</p>
+    <p><strong>Source A:</strong> <a href="https://learn.microsoft.com/en-us/powershell/scripting/overview?view=powershell-7.4#next-steps">Microsoft Learn: What is PowerShell? (anchor: next-steps)</a><br/>
+       <strong>Source B:</strong> <a href="https://www.manning.com/books/powershell-in-depth">Manning: PowerShell in Depth</a> (pointer substring: "Written by three experienced authors and PowerShell MVPs")<br/>
+       <strong>Source C (CZ/RU e-book platform):</strong> <a href="https://litres.com/book/sara-perrott/windows-server-2022-powershell-all-in-one-for-dummies-67261120/">Litres: Windows Server 2022 &amp; Powershell All-in-One For Dummies</a> (pointer substring: "Read only on Litres")
+    </p>
+    <p><strong>Author/Organization:</strong> Microsoft; Manning Publications; Sara Perrott / Wiley / Litres</p>
+    <p class="tags"><strong>Tags (EN):</strong> Learning_path, PowerShell_community, PowerShell_in_Depth, Reference_book, Continuous_learning<br/>
+      <strong>Tagy (CZ):</strong> Studijni_cesta, Komunita_PowerShell, PowerShell_in_Depth, Referencni_kniha, Prubezne_vzdelavani</p>
+  </div>
+
+  <h2>Použitá literatura (celkový výpis)</h2>
+  <ol>
+    <li><a href="https://en.wikipedia.org/wiki/PowerShell#Overview">Wikipedia - PowerShell</a> (Wikimedia Foundation)</li>
+    <li><a href="https://learn.microsoft.com/en-us/powershell/scripting/overview?view=powershell-7.4">Microsoft Learn - What is PowerShell?</a> (Microsoft)</li>
+    <li><a href="https://learn.microsoft.com/en-us/powershell/scripting/learn/discover-powershell?view=powershell-7.5">Microsoft Learn - Discover PowerShell</a> (Microsoft)</li>
+    <li><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_objects?view=powershell-7.5">Microsoft Learn - about_Objects</a> (Microsoft)</li>
+    <li><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_pipelines?view=powershell-7.6">Microsoft Learn - about_Pipelines</a> (Microsoft)</li>
+    <li><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_providers?view=powershell-7.5">Microsoft Learn - about_Providers</a> (Microsoft)</li>
+    <li><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_scripts?view=powershell-7.5">Microsoft Learn - about_Scripts</a> (Microsoft)</li>
+    <li><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_try_catch_finally?view=powershell-7.5">Microsoft Learn - about_Try_Catch_Finally</a> (Microsoft)</li>
+    <li><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_modules?view=powershell-7.5">Microsoft Learn - about_Modules</a> (Microsoft)</li>
+    <li><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_remote?view=powershell-7.5">Microsoft Learn - about_Remote</a> (Microsoft)</li>
+    <li><a href="https://www.manning.com/books/powershell-in-depth">Manning - PowerShell in Depth</a> (Manning Publications)</li>
+    <li><a href="https://litres.com/book/sara-perrott/windows-server-2022-powershell-all-in-one-for-dummies-67261120/">Litres - Windows Server 2022 &amp; Powershell All-in-One For Dummies</a> (Litres / Wiley)</li>
+  </ol>
+</body>
+</html>
