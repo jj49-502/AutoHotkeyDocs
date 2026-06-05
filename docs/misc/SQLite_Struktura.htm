@@ -1,0 +1,104 @@
+<!DOCTYPE HTML>
+<html lang="cs">
+<head>
+<title>SQLite - Struktura hlavních částí databáze</title>
+<meta name="description" content="Přehled hlavních částí SQLite databáze od základů po pokročilejší blokovou strukturu." />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link href="../static/theme.css" rel="stylesheet" type="text/css" />
+<script src="../static/content.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1>SQLite - Struktura hlavních částí databáze</h1>
+
+<h2>1) Co je to SQLite</h2>
+<p>
+SQLite je vestavěný relační databázový engine (embedded database engine), který ukládá data přímo do jednoho souboru.
+Na rozdíl od klient-server databází nevyžaduje samostatný serverový proces; aplikace komunikuje přímo s knihovnou SQLite.
+</p>
+
+<h2>2) Bloková struktura od nejjednodušší k složitější</h2>
+
+<h3>2.1 Databázový soubor a stránky (pages)</h3>
+<ul>
+  <li>Databáze je rozdělena na stránky pevné velikosti (typicky 4096 B, ale možné jsou i jiné velikosti).</li>
+  <li>Prvních 100 bajtů první stránky tvoří databázovou hlavičku (database header) s metadaty.</li>
+  <li>Základní „blok" práce SQLite je stránka; čtení i zápis probíhá po stránkách.</li>
+</ul>
+
+<h3>2.2 Typy stránek v databázovém souboru</h3>
+<ul>
+  <li><strong>B-tree stránky</strong> (tabulky/indexy): nesou vlastní data a indexové struktury.</li>
+  <li><strong>Freelist trunk/leaf stránky</strong>: evidují volné stránky připravené pro opětovné použití.</li>
+  <li><strong>Overflow stránky</strong>: uchovávají pokračování dlouhých záznamů, které se nevešly do B-tree buňky.</li>
+  <li><strong>Pointer-map stránky</strong>: používají se hlavně v režimu auto-vacuum/incremental-vacuum.</li>
+  <li><strong>Lock-byte page</strong>: speciální stránka relevantní pro určité režimy/rozhraní.</li>
+</ul>
+
+<h3>2.3 B-tree stránka: vnitřní členění</h3>
+<ul>
+  <li>Každá B-tree stránka má hlavičku stránky.</li>
+  <li>Následuje pole ukazatelů na buňky (cell pointer array).</li>
+  <li>Buňky obsahují klíče, payload (data záznamu) a případně odkaz na overflow stránku.</li>
+  <li>Uvnitř stránky je také volné místo, které se využívá při insert/update operacích.</li>
+</ul>
+
+<h3>2.4 Buňky, záznamy a serializace hodnot</h3>
+<ul>
+  <li>V tabulkovém B-tree listu odpovídá buňka obvykle jednomu řádku.</li>
+  <li>Záznam používá vlastní formát hlavičky + hodnot (serial types), takže různé datové typy mají kompaktní uložení.</li>
+  <li>V indexovém B-tree bývají klíče a reference navržené pro rychlé vyhledávání a třídění.</li>
+</ul>
+
+<h3>2.5 Overflow řetězení (větší payload)</h3>
+<ul>
+  <li>Když je payload příliš velký, část zůstane v původní B-tree buňce a zbytek se přesune do overflow stránek.</li>
+  <li>Overflow stránky tvoří propojený seznam (linked list).</li>
+  <li>Tento mechanismus umožňuje ukládat i velmi dlouhé hodnoty bez porušení velikosti stránky.</li>
+</ul>
+
+<h3>2.6 Freelist a recyklace místa</h3>
+<ul>
+  <li>Smazaná/uvoľněná místa nemusí SQLite hned zmenšit na úrovni souboru.</li>
+  <li>Místo toho se stránky ukládají do freelistu a znovu se použijí při dalších operacích.</li>
+  <li>Pro fyzické zmenšení souboru se typicky používá VACUUM (podle režimu databáze).</li>
+</ul>
+
+<h3>2.7 Žurnálování a konzistence (rollback journal / WAL)</h3>
+<ul>
+  <li>Konzistence transakcí je zajištěna žurnálovacím režimem.</li>
+  <li><strong>Rollback journal</strong>: před změnou se ukládá původní stav stránek.</li>
+  <li><strong>WAL</strong> (Write-Ahead Logging): změny se nejprve zapisují do WAL souboru, následně checkpoint do hlavního souboru.</li>
+  <li>Volba režimu ovlivňuje výkon zápisu, souběh čtení/zápisu i provozní chování.</li>
+</ul>
+
+<h3>2.8 Logická vrstva nad bloky</h3>
+<ul>
+  <li>SQL dotazy procházejí parserem a plánovačem.</li>
+  <li>Virtuální stroj (VDBE) provádí instrukce nad B-tree/pager vrstvou.</li>
+  <li>Nízká vrstva pageru mapuje logické operace na fyzické čtení/zápis stránek.</li>
+</ul>
+
+<h2>3) Doporučené pořadí výuky tématu</h2>
+<ol>
+  <li>Co je SQLite + proč „single-file" databáze.</li>
+  <li>Stránky a databázová hlavička (page size, metadata).</li>
+  <li>Typy stránek.</li>
+  <li>B-tree stránka a buňky.</li>
+  <li>Overflow mechanismus.</li>
+  <li>Freelist, VACUUM, správa prostoru.</li>
+  <li>Rollback journal vs. WAL.</li>
+  <li>Vazba SQL vrstvy na pager/B-tree (architektura end-to-end).</li>
+</ol>
+
+<h2>4) Literatura (internetové zdroje)</h2>
+<ul>
+  <li>SQLite Documentation - <a href="https://www.sqlite.org/docs.html">Documentation index</a></li>
+  <li>SQLite - <a href="https://www.sqlite.org/fileformat.html">Database File Format</a></li>
+  <li>SQLite - <a href="https://www.sqlite.org/arch.html">Architecture of SQLite</a></li>
+  <li>SQLite - <a href="https://www.sqlite.org/wal.html">Write-Ahead Logging</a></li>
+  <li>SQLite - <a href="https://www.sqlite.org/lang_vacuum.html">VACUUM</a></li>
+</ul>
+</body>
+</html>
